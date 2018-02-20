@@ -6,9 +6,17 @@ class ContactsListView extends React.Component {
         state = {
             contacts: [
                 {
+                    id: 1,
                     firstNameLastName: 'Łukasz Sztormowski',
-                    telephone: '555 666 777',
+                    telephone: 555666777,
                     email: 'qki@qki.pl',
+                    category: 'rodzina',
+                },
+                {
+                    id: 2,
+                    firstNameLastName: 'Maciej Sztormowski',
+                    telephone: 223332223,
+                    email: 'makec@mistrz.pl',
                     category: 'rodzina',
                 }
             ]
@@ -19,7 +27,7 @@ class ContactsListView extends React.Component {
 
         return (
             <React.Fragment>
-                <ContactList contacts={this.state.contacts[0]}/>
+                <ContactList contacts={this.state.contacts}/>
             </React.Fragment>
         );
     }

@@ -6,9 +6,18 @@ class ContactList extends React.Component {
 
         return (
            <React.Fragment>
-               <p>Tu będzie lista kontaktów</p>
+               <h2>Lista kontaktów</h2>
                <ul>
-                   <li>{contacts.firstNameLastName}</li>
+                   {contacts.map(contact => (
+                       <li key={contact.id}>
+                           {contact.firstNameLastName} --
+                           {contact.telephone} --
+                           {contact.email} --
+                           {contact.category}
+                       </li>
+                   ))}
+
+
                </ul>
            </React.Fragment>
         );
