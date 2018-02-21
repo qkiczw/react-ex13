@@ -1,5 +1,12 @@
 import React from 'react';
 
+const initialState  = {
+    firstNameLastName: '',
+    telephone: '',
+    email: '',
+    category: ''
+}
+
 class AddContactForm extends React.Component {
     state = {
         firstNameLastName: '',
@@ -22,6 +29,8 @@ class AddContactForm extends React.Component {
         event.preventDefault();
 
         this.props.addTask(this.state);
+
+        this.setState(initialState);
 
         console.log(this.state)
     };
