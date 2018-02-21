@@ -9,32 +9,58 @@ class AddContactForm extends React.Component {
     };
 
     onHandle = (event) => {
-        const firstNameLastNameValue = event.target.firstNameLastName;
-        const telephoneValue = event.target.telephone;
-        const emailValue = event.target.email;
-        const categoryValue = event.target.category;
+        const name = event.target.name;
+        const value = event.target.value;
 
+        const patch = {};
+        patch[name] = value;
 
-
-        console.log(this.state.firstNameLastName, this.state.telephone);
+        this.setState(patch)
     };
 
     handleSubmit = event => {
-        event.preventDefault()
+        event.preventDefault();
+
+        this.props.addTask(this.state);
 
         console.log(this.state)
-    }
+    };
 
     render() {
-        const {firstNameLastName, telephone} = this.state;
+        const {firstNameLastName, telephone, email, category} = this.state;
         return (
             <React.Fragment>
                 <p>Dodaj kontakt formularz</p>
                 <form onSubmit={this.handleSubmit}>
-                <input type="text"  value={firstNameLastName} onChange={this.onHandle} placeholder="Imię i nawzwisko"/>
-                <input type="text"  value={telephone}  onChange={this.onHandle} placeholder="Nr telefonu"/>
-                <input type="text"  placeholder="Adres email"/>
-                <input type="text"  placeholder="Kategoria"/>
+                <input
+                    type="text"
+                    name="firstNameLastName"
+                    value={firstNameLastName}
+                    onChange={this.onHandle}
+                    placeholder="Imię i nawzwisko"
+                />
+                <input
+                    type="text"
+                    name="telephone"
+                    value={telephone}
+                    onChange={this.onHandle}
+                    placeholder="Nr telefonu"
+                />
+                <input
+                    type="text"
+                    name="email"
+                    value={email}
+                    onChange={this.onHandle}
+                    placeholder="Adres email"
+                />
+                <input
+                    type="text"
+                    name="category"
+                    value={category}
+                    onChange={this.onHandle}
+                    placeholder="kategoria"
+                 />
+
                 <button onClick={this.onHandle}>Dodaj kontakt</button>
                 </form>
             </React.Fragment>
