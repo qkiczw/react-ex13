@@ -1,1 +1,29 @@
 
+.namesInput, .telephoneInput, .emailInput, categoryInput{
+    padding-right: 10px;
+
+}
+.removeContactBtn {
+    marign-left:  50px;
+    background-color: red;
+    color: white;
+    border: 0;
+}
+
+.removeContactBtn:hover {
+    marign-left:  50px;
+    background-color: red;
+    color: white;
+    border: 0;
+    box-shadow: 2px 0px 5px red;
+}
+
+.contact{
+    margin-top: 20px;
+}
+
+li{
+    border: 1px solid silver;
+    min-width: 50%;
+}
+

@@ -37,18 +37,19 @@ class ContactsListView extends React.Component {
     };
 
     removeContact = ContactId => {
+        console.log(ContactId)
         this.setState({
             contacts: this.state.contacts.filter( contact => contact.id !== ContactId)
+
+
         })
     };
-
-
 
     render() {
         return (
             <React.Fragment>
-                <AddContactForm addContact={this.addContact} removeContact={this.removeContact}/>
-                <ContactList contacts={this.state.contacts}/>
+                <AddContactForm addContact={this.addContact}/>
+                <ContactList contacts={this.state.contacts} removeContact={this.removeContact}/>
             </React.Fragment>
         );
     }

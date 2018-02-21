@@ -10,12 +10,12 @@ class ContactList extends React.Component {
                <h2>Lista kontaktów</h2>
                <ul>
                    {contacts.map(contact => (
-                       <li key={contact.id}>
-                           {contact.firstNameLastName} --
-                           {contact.telephone} --
-                           {contact.email} --
-                           {contact.category}
-                           <button onClick={() => removeContact(contact.id)}>Usuń</button>
+                       <li className="contact" key={contact.id}>
+                           <span className="namesInput"><strong>{contact.firstNameLastName}</strong></span><br />
+                           <span className="telephoneInput">tel: {contact.telephone}, </span>
+                           <span className="emailInput">email: {contact.email}, </span>
+                           <span className="categoryInput">kategoria: {contact.category} </span>
+                           <button className="removeContactBtn" onClick={() => removeContact(contact.id)}>Usuń</button>
                        </li>
                    ))}
 
