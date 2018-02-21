@@ -24,7 +24,7 @@ class ContactsListView extends React.Component {
             ]
         };
 
-    addTask = ({ firstNameLastName, telephone, email, category }) => {
+    addContact = ({ firstNameLastName, telephone, email, category }) => {
         this.setState({
             contacts: this.state.contacts.concat({
                 id: Date.now().toString(32),
@@ -36,12 +36,18 @@ class ContactsListView extends React.Component {
         })
     };
 
+    removeContact = ContactId => {
+        this.setState({
+            contacts: this.state.contacts.filter( contact => contact.id !== ContactId)
+        })
+    };
+
+
+
     render() {
-
-
         return (
             <React.Fragment>
-                <AddContactForm addTask={this.addTask}/>
+                <AddContactForm addContact={this.addContact} removeContact={this.removeContact}/>
                 <ContactList contacts={this.state.contacts}/>
             </React.Fragment>
         );

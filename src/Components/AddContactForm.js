@@ -28,7 +28,7 @@ class AddContactForm extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
 
-        this.props.addTask(this.state);
+        this.props.addContact(this.state);
 
         this.setState(initialState);
 
