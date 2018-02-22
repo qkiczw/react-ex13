@@ -1,10 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
-class App extends Component {
+import ContactsListView from './Components/ContactsListView';
+
+
+class App extends React.Component {
   render() {
     return (
-      <p>test</p>
+      <React.Fragment>
+        <h1>Lista Kontaktów</h1>
+        <ContactsListView />
+      </React.Fragment>
     );
   }
 }

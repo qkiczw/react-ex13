@@ -1,1 +1,54 @@
 
+
+
+.contact{
+    margin-top: 20px;
+}
+
+h1{
+    text-align: center;
+}
+
+.contactListTitle{
+    text-align: center;
+}
+
+ul{
+    margin-left: 20px;
+}
+
+
+input[type=text] {
+    width: 20%;
+    padding: 7px 10px;
+    margin: 8px 10px;
+    box-sizing: border-box;
+}
+
+.addContactBtn{
+    background-color: forestgreen;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    cursor: pointer;
+
+}
+
+.addContactBtn:hover{
+    background-color: green;
+}
+
+li .removeContactBtn {
+    margin-left: 50px;
+    padding: 10px 10px;
+    background-color: #FF0900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.removeContactBtn:hover {
+    background-color: #a80900;
+}
