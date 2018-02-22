@@ -7,15 +7,16 @@ class ContactList extends React.Component {
 
         return (
            <React.Fragment>
-               <h2>Lista kontaktów</h2>
+               <h2 className="contactListTitle">Lista kontaktów</h2>
                <ul>
                    {contacts.map(contact => (
                        <li className="contact" key={contact.id}>
-                           <span className="namesInput"><strong>{contact.firstNameLastName}</strong></span><br />
-                           <span className="telephoneInput">tel: {contact.telephone}, </span>
-                           <span className="emailInput">email: {contact.email}, </span>
-                           <span className="categoryInput">kategoria: {contact.category} </span>
-                           <button className="removeContactBtn" onClick={() => removeContact(contact.id)}>Usuń</button>
+                           <strong>{contact.firstNameLastName}</strong>
+                           <br />
+                           tel: {contact.telephone},
+                           email: {contact.email},
+                           kategoria: {`[${contact.category}]`}
+                           <button type="button" className="removeContactBtn" onClick={() => removeContact(contact.id)}>Usuń</button>
                        </li>
                    ))}
 

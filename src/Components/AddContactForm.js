@@ -39,7 +39,6 @@ class AddContactForm extends React.Component {
         const {firstNameLastName, telephone, email, category} = this.state;
         return (
             <React.Fragment>
-                <p>Dodaj kontakt formularz</p>
                 <form onSubmit={this.handleSubmit}>
                 <input
                     type="text"
@@ -69,8 +68,7 @@ class AddContactForm extends React.Component {
                     onChange={this.onHandle}
                     placeholder="kategoria"
                  />
-
-                <button onClick={this.onHandle}>Dodaj kontakt</button>
+                <button type="button" className="addContactBtn" onClick={this.onHandle}>Dodaj kontakt</button>
                 </form>
             </React.Fragment>
         );
