@@ -24,6 +24,7 @@ class AddContactForm extends React.Component {
         patch[name] = value;
 
         this.setState(patch)
+
     };
 
     handleSubmit = event => {
@@ -33,7 +34,6 @@ class AddContactForm extends React.Component {
 
         this.setState(initialState);
 
-        console.log(this.state)
     };
 
     render() {
@@ -76,11 +76,6 @@ class AddContactForm extends React.Component {
         );
     }
 }
-const mapStateToProps = state => {
-    return {
-
-    }
-}
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -89,4 +84,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddContactForm);
+export default connect(null, mapDispatchToProps)(AddContactForm);
