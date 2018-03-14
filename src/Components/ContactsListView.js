@@ -3,6 +3,8 @@ import React from 'react';
 import ContactList from './ContactList'
 import AddContactForm from './AddContactForm';
 
+import {connect} from 'react-redux'
+
 
 class ContactsListView extends React.Component {
         state = {
@@ -55,4 +57,8 @@ class ContactsListView extends React.Component {
     }
 }
 
-export default ContactsListView;
+const mapStateToProps = state => {
+
+}
+
+export default connect(mapStateToProps())(ContactsListView);

@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
 class ContactList extends React.Component {
     render() {
@@ -9,7 +10,7 @@ class ContactList extends React.Component {
            <React.Fragment>
                <h2 className="contactListTitle">Moje Kontakty</h2>
                <ul>
-                   {contacts.map(contact => (
+                   {this.props.stateContacts.map(contact => (
                        <li className="contact" key={contact.id}>
                           <strong>{contact.firstNameLastName}</strong><br />
                            tel: {contact.telephone},
@@ -26,4 +27,10 @@ class ContactList extends React.Component {
     }
 }
 
-export default ContactList;
+const mapStateToProps = state => {
+    return {
+        stateContacts: state.contacts
+    }
+}
+
+export default connect(mapStateToProps)(ContactList);
