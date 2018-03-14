@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
 const initialState  = {
     firstNameLastName: '',
@@ -75,5 +76,17 @@ class AddContactForm extends React.Component {
         );
     }
 }
+const mapStateToProps = state => {
+    return {
 
-export default AddContactForm;
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addContact: ( {firstNameLastName, telephone, email, category} ) => dispatch({type: 'ADD_CONTACT', firstNameLastName, telephone, email, category})
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddContactForm);

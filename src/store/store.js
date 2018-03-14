@@ -28,16 +28,21 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        // case 'INCREMENT':
-        //
-        //     return {
-        //         ...state,
-        //         counter: state.counter + 1
-        //
-        //     }
+        case 'ADD_CONTACT':
+            console.log('testuje dodający klik!!!')
+            return {
+                ...state,
+                contacts: state.contacts.concat({
+                    id: Date.now().toString(32),
+                    firstNameLastName: action.firstNameLastName,
+                    telephone: action.telephone,
+                    email: action.telephone,
+                    category: action.category
+                })
+
+            }
 
         case 'DELETE_CONTACT':
-            console.log('testuje klik')
             const updatedContactArray = state.contacts.filter( contact => contact.id !== action.contactId)
             return {
                 ...state,
