@@ -16,7 +16,7 @@ class ContactList extends React.Component {
                            tel: {contact.telephone},
                            email: {contact.email},
                            kategoria: {`[${contact.category}]`}
-                           <button className="removeContactBtn" onClick={() => removeContact(contact.id)}>Usuń</button>
+                           <button className="removeContactBtn" onClick={() => this.props.onDeleteContact(contact.id)}>Usuń</button>
                        </li>
                    ))}
 
@@ -33,4 +33,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(ContactList);
+const mapDispatchToProps = dispatch => {
+    return {
+        onDeleteContact: (id) => dispatch({type: 'DELETE_CONTACT', contactId: id}),
+
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

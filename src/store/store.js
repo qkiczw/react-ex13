@@ -28,12 +28,20 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'INCREMENT':
+        // case 'INCREMENT':
+        //
+        //     return {
+        //         ...state,
+        //         counter: state.counter + 1
+        //
+        //     }
 
+        case 'DELETE_CONTACT':
+            console.log('testuje klik')
+            const updatedContactArray = state.contacts.filter( contact => contact.id !== action.contactId)
             return {
                 ...state,
-                counter: state.counter + 1
-
+                contacts: updatedContactArray
             }
 
         default:
