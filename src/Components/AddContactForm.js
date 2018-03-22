@@ -10,12 +10,7 @@ const initialState  = {
 }
 
 class AddContactForm extends React.Component {
-    state = {
-        firstNameLastName: '',
-        telephone: '',
-        email: '',
-        category: ''
-    };
+    state = initialState;
 
     onHandle = (event) => {
         const name = event.target.name;
@@ -24,15 +19,12 @@ class AddContactForm extends React.Component {
         patch[name] = value;
 
         this.setState(patch)
-        console.log(this.state)
 
     };
 
     handleSubmit = event => {
         event.preventDefault();
-
         this.props.addTask(this.state);
-
         this.setState(initialState);
 
     };
@@ -77,12 +69,5 @@ class AddContactForm extends React.Component {
         );
     }
 }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         addContact: ( {firstNameLastName, telephone, email, category} ) => dispatch({type: 'ADD_CONTACT', firstNameLastName, telephone, email, category})
-//
-//     }
-// }
 
 export default connect(null, {addTask})(AddContactForm);

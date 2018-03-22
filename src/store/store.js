@@ -2,20 +2,16 @@ import {createStore} from 'redux';
 
 
 //Action Types
-
 const ADD = 'tasks/ADD_TASK';
 const REMOVE = 'tasks/REMOVE_TASK'
 
 //Action Creators
-
-export const addTask = (firstNameLastName, telephone, email, category) => ({
+export const addTask = ({firstNameLastName, telephone, email, category}) => ({
     type: ADD,
     firstNameLastName,
     telephone,
     email,
     category
-
-
 })
 
 export const removeContact = (contactId) => ({
@@ -54,16 +50,16 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD:
-            console.log('testuje dodający klik!!!')
+            const newContact = {
+                id: Date.now().toString(32),
+                firstNameLastName: action.firstNameLastName,
+                telephone: action.telephone,
+                email: action.email,
+                category: action.category
+            }
             return {
                 ...state,
-                contacts: state.contacts.concat({
-                    id: Date.now().toString(32),
-                    firstNameLastName: action.firstNameLastName,
-                    telephone: action.telephone,
-                    email: action.telephone,
-                    category: action.category
-                })
+                contacts: state.contacts.concat(newContact)
 
             }
 
