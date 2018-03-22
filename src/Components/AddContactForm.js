@@ -62,7 +62,6 @@ class AddContactForm extends React.Component {
                     onChange={this.onHandle}
                     placeholder="kategoria"
                  />
-
                 <button className="addContactBtn" onClick={this.onHandle}>Dodaj kontakt</button>
                 </form>
             </React.Fragment>
