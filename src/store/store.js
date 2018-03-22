@@ -1,5 +1,30 @@
 import {createStore} from 'redux';
 
+
+//Action Types
+
+const ADD = 'tasks/ADD_TASK';
+const REMOVE = 'tasks/REMOVE_TASK'
+
+//Action Creators
+
+export const addTask = (firstNameLastName, telephone, email, category) => ({
+    type: ADD,
+    firstNameLastName,
+    telephone,
+    email,
+    category
+
+
+})
+
+export const removeContact = (contactId) => ({
+    type: REMOVE,
+    contactId
+
+})
+
+
 const initialState = {
     contacts: [
     {
@@ -28,7 +53,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_CONTACT':
+        case ADD:
             console.log('testuje dodający klik!!!')
             return {
                 ...state,
@@ -42,7 +67,7 @@ const reducer = (state = initialState, action) => {
 
             }
 
-        case 'DELETE_CONTACT':
+        case REMOVE:
             const updatedContactArray = state.contacts.filter( contact => contact.id !== action.contactId)
             return {
                 ...state,

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {removeContact} from "../store/store"
 
 class ContactList extends React.Component {
     render() {
@@ -16,7 +17,7 @@ class ContactList extends React.Component {
                            tel: {contact.telephone},
                            email: {contact.email},
                            kategoria: {`[${contact.category}]`}
-                           <button className="removeContactBtn" onClick={() => this.props.onDeleteContact(contact.id)}>Usuń</button>
+                           <button className="removeContactBtn" onClick={() => this.props.removeContact(contact.id)}>Usuń</button>
                        </li>
                    ))}
 
@@ -27,16 +28,20 @@ class ContactList extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        stateContacts: state.contacts
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         stateContacts: state.contacts
+//     }
+// }
+//
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         onDeleteContact: (id) => dispatch({type: 'DELETE_CONTACT', contactId: id}),
+//
+//     }
+// }
+// export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onDeleteContact: (id) => dispatch({type: 'DELETE_CONTACT', contactId: id}),
-
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+export default connect(state => ({
+    stateContacts: state.contacts
+}), {removeContact})(ContactList)

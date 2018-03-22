@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {addTask} from "../store/store"
 
 const initialState  = {
     firstNameLastName: '',
@@ -19,18 +20,18 @@ class AddContactForm extends React.Component {
     onHandle = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-
         const patch = {};
         patch[name] = value;
 
         this.setState(patch)
+        console.log(this.state)
 
     };
 
     handleSubmit = event => {
         event.preventDefault();
 
-        this.props.addContact(this.state);
+        this.props.addTask(this.state);
 
         this.setState(initialState);
 
@@ -77,11 +78,11 @@ class AddContactForm extends React.Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addContact: ( {firstNameLastName, telephone, email, category} ) => dispatch({type: 'ADD_CONTACT', firstNameLastName, telephone, email, category})
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         addContact: ( {firstNameLastName, telephone, email, category} ) => dispatch({type: 'ADD_CONTACT', firstNameLastName, telephone, email, category})
+//
+//     }
+// }
 
-    }
-}
-
-export default connect(null, mapDispatchToProps)(AddContactForm);
+export default connect(null, {addTask})(AddContactForm);
