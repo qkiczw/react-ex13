@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import {addTask} from "../store/store"
 
 const initialState  = {
     firstNameLastName: '',
@@ -8,31 +10,23 @@ const initialState  = {
 }
 
 class AddContactForm extends React.Component {
-    state = {
-        firstNameLastName: '',
-        telephone: '',
-        email: '',
-        category: ''
-    };
+    state = initialState;
 
     onHandle = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-
         const patch = {};
         patch[name] = value;
 
         this.setState(patch)
+
     };
 
     handleSubmit = event => {
         event.preventDefault();
-
-        this.props.addContact(this.state);
-
+        this.props.addTask(this.state);
         this.setState(initialState);
 
-        console.log(this.state)
     };
 
     render() {
@@ -76,4 +70,4 @@ class AddContactForm extends React.Component {
     }
 }
 
-export default AddContactForm;
+export default connect(null, {addTask})(AddContactForm);
